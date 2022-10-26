@@ -40,17 +40,60 @@ Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pe
     - Solusi yang diberikan harus dapat terukur dengan metrik evaluasi.
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+- **Informasi Dataset**
+  <br> Dataset yang digunakan pada proyek ini yaitu dataset lengkap dengan prngukuran radiasi matahari selama 4 bulan, informasi lebih lanjut mengenai dataset tersebut dapat lihat pada tabel berikut:
 
-Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+  | Jenis                   | Keterangan                                                                                         |
+  | ----------------------- | -------------------------------------------------------------------------------------------------- |
+  | Sumber                  | Dataset: [Kaggle]([https://www.kaggle.com/datasets/dronio/SolarEnergy?select=SolarPrediction.csv]) |
+  | Dataset Owner           | ANDREY                                                                                             |
+  | Lisensi                 | https://opendatacommons.org/licenses/dbcl/1-0/                                                     |
+  | Kategori                | SolarRadiation, Energy                                                                             |
+  | Usability               | 8.24                                                                                               |
+  | Jenis dan Ukuran Berkas | CSV (2.9 MB)                                                                                    |
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+  Setelah melakukan observasi pada dataset yang diunduh melalui _link_ Kaggle yaitu `SolarPrediction.csv', didapatkan informasi sebagai berikut :
+  
+  - Terdapat  2991 baris (_records_ atau jumlah pengamatan) yang berisi informasi mengenai data riwayat harga **Bitcoin**.
+  - Terdapat 10 kolom yaitu `SNo, Name, Symbol, Date, High, Low, Open, Close, Volume, Marketcap` yang merupakan variabel - variabel pada data
+  - Dari kolom-kolom tersebut terdapat 6 kolom numerik dengan tipe data float64, yaitu `High, Low, Open, Close, Volume, Marketcap` dan terdapat 1 kolom numerik dengan tipe data int64 yaitu `SNo` yang merupakan fitur numerik. 
+  - Terdapat 2 kolom dengan tipe object yaitu `Name, Symbol`
+  - Tidak terdapat _missing value_ pada dataset. 
+  
+  Untuk penjelasan mengenai variabel-variabel pada dataset dapat dilihat pada poin-poin berikut ini:
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
+    * UNIXTime (seconds since Jan 1, 1970)
+    * Date in mm-dd-yyyy format
+    * Radiation: watts per meter 2 
+    * Temperature: degrees Fahrenheit
+    * Humidity: percent
+    * Atmospheric pressure: Hg
+    * Wind direction: degrees
+    * Wind speed: miles per hour
+    * Sunrise/Sunset: Hawaii time
+
+- **Sebaran atau Distribusi Data pada Setiap Fitur**
+  <br> sebelum masuk ke tahap distribusi data, persiapan yang dilakukan yaitu perlu membuat dua variabel baru yaitu variabel OHLC_Average untuk menampung rata-rata harga dan Price_After_Month untuk harga setelah sebulan.
+  <br> Berikut merupakan visualisasi data yang menunjukkan sebaran/distribusi data pada setiap fitur-fitur numerik (`High, Low, Open, Close, OHLC_Average, Price_After_Month`) :
+  
+  - Mengidentifikasi Missing Value dan Outlier
+    <br>
+    <image src='https://raw.githubusercontent.com/AzharRizky/Predictive-Anlaytics/main/images/boxplot_outlier.png' width= 500/>
+    <br> Terlihat jika di atas banyak terdapat outlier pada setiap variabel, lalu untuk mengatasinya nantinya penulis akan menerapkan batas bawah dan batas atas menggunakan metode IQR
+    
+  - Univariate Analysis
+    <br>
+    <image src='https://raw.githubusercontent.com/AzharRizky/Predictive-Anlaytics/main/images/distribusi_data(right-skewed).png' width= 500/>
+    <br> Terlihat pada grafik bahwa semua data cenderung distribusi nilainya miring ke kanan (right-skewed). Hal ini akan berimplikasi pada model nantinya.
+    
+  - Multivariate Analysis
+    <br>
+    <image src='https://raw.githubusercontent.com/AzharRizky/Predictive-Anlaytics/main/images/korelasi_antar_variabel.png' width= 500/>
+    <br> Terlihat bahwa pada grafik kebanyakan bernilai positif karena kebanyakan grafik pada sumbu y dan x mengalami peningkatan yang cukup signifikan membentuk sebuah garis lurus.
+    
+    <br>
+    <image src='https://raw.githubusercontent.com/AzharRizky/Predictive-Anlaytics/main/images/corelation_matrix.png' width= 500/>
+    <br> Terlihat pada matriks korelasi di atas dapat disimpulkan bahwa semua variabel memiliki keterikatan dan korelasi yang kuat antar variabel lainnya, dimana nilai korelasi antar variabel bernilai lebih dari 0.9 atau mendekati 1.
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
