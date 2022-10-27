@@ -2,41 +2,44 @@
 
 #### Disusun oleh : Ichsan Maulana Putra
 
-Ini adalah proyek pertama predictive analytics untuk memenuhi submission dicoding. Proyek ini membangun model machine learning yang dapat memprediksi pancaran radiasi matahari.
+Ini adalah proyek pertama predictive analytics untuk memenuhi submission dicoding. Proyek ini membangun model machine learning yang dapat memprediksi pancaran sinar radiasi matahari.
 
 ## Domain Proyek
 
 ### Latar Belakang
 
-Radiasi matahari merupakan salah satu parameter cuaca yang paling berpengaruh dalam sistem iklim, dimana seluruh fenomena cuaca dan iklim pada mulanya disebabkan oleh variasi distribusi penerimaan radiasi matahari. Fluktuasi intensitas radiasi matahari yang diterima di permukaan bumi membentuk pola iklim dalam berbagai skala waktu. Tidak hanya mempengaruhi sistem cuaca dan iklim, pola radiasi matahari juga memberikan informasi penting dalam berbagai sektor, seperti pertanian, sumber daya air, dan energi. Meskipun demikian, radiasi matahari merupakan salah satu parameter cuaca yang masih belum terlalu banyak dikaji datanya untuk dikembangkan. Salah satunya pentingnya radiasi matahari terhadap pengembangn lokasi yang nantinya digunakan untuk pembangunan PLTS(Pembangkit Listrik Tenaga Surya) 
+Radiasi matahari merupakan salah satu parameter cuaca yang paling berpengaruh dalam sistem iklim, dimana seluruh fenomena cuaca dan iklim pada mulanya disebabkan oleh variasi distribusi penerimaan radiasi matahari. Fluktuasi intensitas radiasi matahari yang diterima di permukaan bumi membentuk pola iklim dalam berbagai skala waktu. Tidak hanya mempengaruhi sistem cuaca dan iklim, pola radiasi matahari juga memberikan informasi penting dalam berbagai sektor, seperti pertanian, sumber daya air, dan energi. Meskipun demikian, radiasi matahari merupakan salah satu parameter cuaca yang masih belum terlalu banyak dikaji datanya untuk dikembangkan. Salah satunya pentingnya radiasi matahari terhadap pengembangn lokasi yang nantinya digunakan untuk pembangunan PLTS(Pembangkit Listrik Tenaga Surya).
 
 <br>
 
-<div><img src="https://github.com/Icaaan/Solar_Radiation/blob/main/images/1.png" width="1000"/></div>
+<div><img src="https://github.com/Icaaan/Solar_Radiation/blob/main/images/0.jpg" width="800"/></div>
 
 <br>
 
-Dalam mencapai hal tersebut, maka dilakukan penelitian untuk memprediksi radiasi matahari menggunakan model machine learning. Diharapkan model ini mampu memprediksi radiasi matahari untuk dapat diterapkan diberbagai sektor energi termasuk solar PV yang sangat berpengaruh dengan tingkat radiasi matahari. Prediksi ini nantinya dapat dijadikan acuan bagi perusahaan listrik swasta atau skala nasional dalam menentukan daerah tersebut sudah cocok diobservasi sebagai tempat yang dapat mendapatkan energi radiasi matahari optimum yang dapat dimasa yang akan datang.
+Dalam mencapai hal tersebut, maka dilakukan penelitian untuk memprediksi radiasi matahari menggunakan model machine learning. Diharapkan model ini mampu memprediksi pancaraan radiasi matahari untuk dapat diterapkan diberbagai sektor energi termasuk PLTS(Pembangkit Listrik Tenaga Surya) yang sangat berpengaruh dengan tingkat radiasi matahari. Prediksi ini nantinya dapat dijadikan acuan bagi perusahaan listrik swasta atau skala nasional dalam menentukan loaksi yang cocok untuk diobservasi sebagai lokasi yang dapat menghasilkan energi radiasi matahari yang optimum dimasa yang akan datang.
 
-Referensi : [Analisis Prediksi Harga Rumah Sesuai Spesifikasi Menggunakan Multiple Linear Regression](https://ejournal.upnvj.ac.id/index.php/informatik/article/download/3635/1498)
+Referensi : [PREDIKSI RADIASI MATAHARI DENGAN PENERAPAN METODE ELMAN RECURRENT NEURAL NETWORK](https://ejournal.uin-suska.ac.id/index.php/SNTIKI/article/view/7787)
 
 ## Business Understanding
 
-1. Fitur apa yang paling berpengaruh terhadap harga sewa rumah atau apartemen?
-2. Bagaimana cara memproses data agar dapat dilatih dengan baik oleh model?
-3. Berapa harga sewa rumah di pasaran berdasarkan karakteristik tertentu?
+### Problem Statements
+
+1. Bagaimana cara melakukan pra-pemrosesan data radiasi matahari sehingga dapat digunakan untuk membuat model yang baik?
+2. Fitur apa yang paling berpengaruh terhadap prediksi radiasi matahari?
+3. Apakah model machine learning dapat memprediksi radiasi matahari dengan tingkat akurasi > 90?
 
 ### Goals
 
-1. Mengetahui fitur yang paling berpengaruh pada harga sewa rumah atau apartemen.
-2. Melakukan persiapan data untuk dapat dilatih oleh model.
-3. Membuat model machine learning yang dapat memprediksi harga sewa rumah seakurat mungkin berdasarkan karakteristik tertentu.
+1. Melakukan pra-pemrosesan data harga **Bitcoin** agar dapat digunakan dalam membangun model.
+2. Mengetahui fitur yang paling berpengaruh pada nilai radiasi matahari.
+3. Membangun model _machine learning_ untuk memprediksi data harga di masa mendatang dengan tingkat akurasi > 90%.
 
 ### Solution Statement
 
 1. Menganalisis data dengan melakukan univariate analysis dan multivariate analysis. Memahami data juga dapat dilakukan dengan visualisasi. Memahami data dapat membantu untuk mengetahui kolerasi antar fitur dan mendeteksi outlier.
 2. Menyiapkan data agar bisa digunakan dalam membangun model.
 3. Melakukan hyperparameter tuning menggunakan grid search dan membangun model regresi yang dapat memprediksi bilangan kontinu. ALgoritma yang dipakai dalam proyek ini adalah K-Nearest Neighbour, Random Forest, dan AdaBoost.
+
 ## Data Understanding
 - **Informasi Dataset**
   <br> Dataset yang digunakan pada proyek ini yaitu dataset lengkap dengan prngukuran radiasi matahari selama 4 bulan, informasi lebih lanjut mengenai dataset tersebut dapat lihat pada tabel berikut:
