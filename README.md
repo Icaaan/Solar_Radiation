@@ -185,7 +185,7 @@ Berikut hasil evaluasi pada proyek ini :
 
 Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini. Model ini masih membutuhkan parameter lain sebagai penunjang data agar bisa menghasilkan akurasi yang lebih optimal.
 
-## Referensi
+## Reference
 
 [1] https://megasains.gawbkt.id/index.php/megasains/article/view/45
 
