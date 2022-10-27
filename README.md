@@ -160,10 +160,11 @@ Dalam mencapai hal tersebut, maka dilakukan penelitian untuk memprediksi radiasi
 
 
 ## Evaluation
-Metrik evaluasi yang digunakan pada proyek ini adalah akurasi dan _mean squared error (MSE)_. Akurasi menentukan tingkat kemiripan antara hasil prediksi dengan nilai yang sebenarnya (y_test). Mean squared error (MSE) mengukur error dalam model statistik dengan cara menghitung rata-rata error dari kuadrat hasil aktual dikurang hasil prediksi. Berikut formulan MSE :
+Metrik evaluasi yang digunakan pada proyek ini adalah akurasi dan _mean squared error (MSE)_. Akurasi menentukan tingkat kemiripan antara hasil prediksi dengan nilai yang sebenarnya (y_test). _Mean squared error_ (MSE) mengukur error dalam model statistik dengan cara menghitung rata-rata error dari kuadrat hasil aktual dikurang hasil prediksi. Berikut formulan MSE :
 
-When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are 
-$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
+![8](https://user-images.githubusercontent.com/48026319/198298023-2f85a22a-a66c-496a-97c5-e30e18b87337.png)
+
+Gambar 6. Formula _Mean squared error_
 
 Berikut hasil evaluasi pada proyek ini :
 
@@ -180,7 +181,7 @@ Berikut hasil evaluasi pada proyek ini :
 
   ![5](https://user-images.githubusercontent.com/48026319/198277076-51c88739-2285-4d09-ace4-b3c677d15b4f.png)
   
-  Gambar 6. Data hasil Keluaran _Mean Squared Error (MSE)_
+  Gambar 7. Data hasil Keluaran _Mean Squared Error (MSE)_
 
 Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini. Model ini masih membutuhkan parameter lain sebagai penunjang data agar bisa menghasilkan akurasi yang lebih optimal.
 
