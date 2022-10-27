@@ -8,7 +8,7 @@ Ini adalah proyek pertama predictive analytics untuk memenuhi submission dicodin
 
 ### Latar Belakang
 
-Radiasi matahari merupakan salah satu parameter cuaca yang paling berpengaruh dalam sistem iklim, dimana seluruh fenomena cuaca dan iklim pada mulanya disebabkan oleh variasi distribusi penerimaan radiasi matahari. Fluktuasi intensitas radiasi matahari yang diterima di permukaan bumi membentuk pola iklim dalam berbagai skala waktu. Tidak hanya mempengaruhi sistem cuaca dan iklim, pola radiasi matahari juga memberikan informasi penting dalam berbagai sektor, seperti pertanian, sumber daya air, dan energi. Meskipun demikian, radiasi matahari merupakan salah satu parameter cuaca yang masih belum terlalu banyak dikaji datanya untuk dikembangkan. Salah satunya pentingnya radiasi matahari terhadap pengembangn lokasi yang nantinya digunakan untuk pembangunan PLTS(Pembangkit Listrik Tenaga Surya).
+Radiasi matahari merupakan salah satu parameter cuaca yang paling berpengaruh dalam sistem iklim, dimana seluruh fenomena cuaca dan iklim pada mulanya disebabkan oleh variasi distribusi penerimaan radiasi matahari. Fluktuasi intensitas radiasi matahari yang diterima di permukaan bumi membentuk pola iklim dalam berbagai skala waktu. Tidak hanya mempengaruhi sistem cuaca dan iklim, pola radiasi matahari juga memberikan informasi penting dalam berbagai sektor, seperti pertanian, sumber daya air, dan energi. Meskipun demikian, radiasi matahari merupakan salah satu parameter cuaca yang masih belum banyak dikaji datanya untuk dikembangkan. Salah satunya pentingnya radiasi matahari disektor energi terhadap pengembangn lokasi yang nantinya digunakan untuk pembangunan PLTS(Pembangkit Listrik Tenaga Surya).
 
 <br>
 
@@ -26,11 +26,11 @@ Referensi : [PREDIKSI RADIASI MATAHARI DENGAN PENERAPAN METODE ELMAN RECURRENT N
 
 1. Bagaimana cara melakukan pra-pemrosesan data radiasi matahari sehingga dapat digunakan untuk membuat model yang baik?
 2. Fitur apa yang paling berpengaruh terhadap prediksi radiasi matahari?
-3. Apakah model machine learning dapat memprediksi radiasi matahari dengan tingkat akurasi > 90?
+3. Apakah model machine learning dapat memprediksi radiasi matahari dengan tingkat akurasi yang baik?
 
 ### Goals
 
-1. Melakukan pra-pemrosesan data harga **Bitcoin** agar dapat digunakan dalam membangun model.
+1. Melakukan pra-pemrosesan data radiasi matahari agar dapat digunakan dalam membangun model.
 2. Mengetahui fitur yang paling berpengaruh pada nilai radiasi matahari.
 3. Membangun model _machine learning_ untuk memprediksi data harga di masa mendatang dengan tingkat akurasi > 90%.
 
@@ -72,9 +72,9 @@ Referensi : [PREDIKSI RADIASI MATAHARI DENGAN PENERAPAN METODE ELMAN RECURRENT N
     * Wind speed = Kecepatan Angin Pada Saat Pengukuran Terjadi[miles/h]
     * Wind direction = Arah angin yang dilambangkan dengan [degrees]
     * Time SunRise/Sunset = Waktu Matahari terbit dan terbenam [HST(Hawai time)]
-    *
+    
 - **Pennambahan Fitur**
-  <br> diperlukan dibuatnya fitur yang spesifik terhadap waktu Sunset dan Sunrise, karena radiasi matahari berubah sesuai dengan        posisi matahari dan durasi radiasi matahari yang diterima bumi. Dengan alasan ini perlu dibuat 2 fitur baru di                  dalam dataset sebagai penunjang data radiasi matahari, yaitu : `Rltv_time` dan `Duration_time`
+  <br> diperlukan dibuatnya fitur yang spesifik terhadap waktu Sunset dan Sunrise, karena radiasi matahari berubah sesuai dengan        posisi matahari dan juga durasi radiasi matahari yang diterima bumi. Dengan alasan ini perlu dibuat 2 fitur baru di              dalam dataset sebagai penunjang data radiasi matahari, yaitu : `Duration_time` dan`Rltv_time`  
 
 - **Sebaran atau Distribusi Data pada Setiap Fitur**
   <br> sebelum masuk ke tahap distribusi data, persiapan yang dilakukan yaitu perlu membuat dua variabel baru yaitu variabel 
@@ -158,4 +158,4 @@ Berikut hasil evaluasi pada proyek ini :
 + Mean Squared Error (MSE)
   <div><img src="https://github.com/Icaaan/Solar_Radiation/blob/main/images/5.png" width="300"/></div>
   
-Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini. Model ini masih membutuhkan parameter lain sebagai penunjang data agar didapat tingkat akurasi yang lebih maksimal lagi.
+Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini. Model ini masih membutuhkan parameter lain sebagai penunjang data agar bisa menghasilkan akurasi yang lebih optimal.
