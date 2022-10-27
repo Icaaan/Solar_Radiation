@@ -79,21 +79,21 @@ Referensi : [PREDIKSI RADIASI MATAHARI DENGAN PENERAPAN METODE ELMAN RECURRENT N
   
   - Mengidentifikasi Missing Value dan Outlier
     <br>
-    <image src='https://github.com/Icaaan/Solar_Radiation/blob/main/images/2.png' width= 500/>
+    <image src='https://github.com/Icaaan/Solar_Radiation/blob/main/images/1.png' width= 500/>
     <br> Terlihat jika di atas banyak terdapat outlier pada setiap variabel, lalu untuk mengatasinyadengan menerapkan batas bawah dan batas atas menggunakan metode IQR
     
   - Univariate Analysis
     <br>
-    <image src='https://github.com/Icaaan/Solar_Radiation/blob/main/images/3.png' width= 500/>
+    <image src='https://github.com/Icaaan/Solar_Radiation/blob/main/images/2.png' width= 500/>
     <br> Terlihat pada grafik bahwa semua data cenderung distribusi nilainya miring ke kanan (right-skewed). Hal ini akan berimplikasi pada model nantinya.
     
   - Multivariate Analysis
     <br>
-    <image src='https://github.com/Icaaan/Solar_Radiation/blob/main/images/4.png' width= 500/>
+    <image src='https://github.com/Icaaan/Solar_Radiation/blob/main/images/3.png' width= 500/>
     <br> Terlihat bahwa pada grafik kebanyakan bernilai positif karena kebanyakan grafik pada sumbu y dan x mengalami peningkatan yang cukup signifikan membentuk sebuah garis lurus.
     
     <br>
-    <image src='https://github.com/Icaaan/Solar_Radiation/blob/main/images/5.png' width= 500/>
+    <image src='https://github.com/Icaaan/Solar_Radiation/blob/main/images/4.png' width= 500/>
     <br> Matrix korelasi mengindikasikan adanya linear korelasi diantara temperature dan solar radiation. Tidak ada data yang berkorelasi linear lain muncul dari feature tersebut.
 
 ## Data Preparation
@@ -134,9 +134,9 @@ Referensi : [PREDIKSI RADIASI MATAHARI DENGAN PENERAPAN METODE ELMAN RECURRENT N
   Hyperparameter tuning adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam hyperparameter tuning yang digunakan dalam proyek ini adalah grid search. Berikut adalah hasil dari Grid Search pada proyek ini :
   | model               | best_params                                                      |
   |---------------------|------------------------------------------------------------------|
-  | knn                 | {'n_neighbors': 13}                                              |
-  | boosting            | {'learning_rate': 0.01, 'n_estimators': 100, 'random_state': 77} |
-  | random_forest       | {'max_depth':16, 'n_estimators': 100, 'random_stste': 11}        |
+  | knn                 | {'n_neighbors': 10}                                              |
+  | boosting            | {'learning_rate': 0.1, 'n_estimators': 100, 'random_state': 33} |
+  | random_forest       | {'max_depth':32, 'n_estimators': 75, 'random_stste': 11}        |
 
 
 ## Evaluation
@@ -148,11 +148,11 @@ Berikut hasil evaluasi pada proyek ini :
 + Akurasi
   | model         | accuracy(%)|
   |---------------|------------|
-  | KNN           | 62.131671  |
-  | RF            | 69.768089  |
-  | Boosting      | 56.726024  |
+  | KNN           | 62.442892  |
+  | RF            | 93.793054  |
+  | Boosting      | 80.889664  |
 
 + Mean Squared Error (MSE)
-  <div><img src="https://github.com/Icaaan/Solar_Radiation/blob/main/images/6.png" width="300"/></div>
+  <div><img src="https://github.com/Icaaan/Solar_Radiation/blob/main/images/5.png" width="300"/></div>
   
-Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini. Model ini masih membutuhkan parameter lain sebagai penunjang data agar didapat tingkat akurasi yang lebih tinggi.
+Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini. Model ini masih membutuhkan parameter lain sebagai penunjang data agar didapat tingkat akurasi yang lebih maksimal lagi.
