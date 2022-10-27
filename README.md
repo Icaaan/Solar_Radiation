@@ -1,14 +1,24 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Proyek Pertama Solar Radiation Prediction
+
+#### Disusun oleh : Ichsan Maulana Putra
+
+Ini adalah proyek pertama predictive analytics untuk memenuhi submission dicoding. Proyek ini membangun model machine learning yang dapat memprediksi pancaran radiasi matahari.
 
 ## Domain Proyek
 
-Pada bagian ini, kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
+### Latar Belakang
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-  
-  Format Referensi: [Judul Referensi](https://scholar.google.com/) 
+Radiasi matahari merupakan salah satu parameter cuaca yang paling berpengaruh dalam sistem iklim, dimana seluruh fenomena cuaca dan iklim pada mulanya disebabkan oleh variasi distribusi penerimaan radiasi matahari. Fluktuasi intensitas radiasi matahari yang diterima di permukaan bumi membentuk pola iklim dalam berbagai skala waktu. Tidak hanya mempengaruhi sistem cuaca dan iklim, pola radiasi matahari juga memberikan informasi penting dalam berbagai sektor, seperti pertanian, sumber daya air, dan energi. Meskipun demikian, radiasi matahari merupakan salah satu parameter cuaca yang masih belum terlalu banyak dikaji datanya untuk dikembangkan. Salah satunya pentingnya radiasi matahari terhadap pengembangn lokasi yang nantinya digunakan untuk pembangunan PLTS(Pembangkit Listrik Tenaga Surya) 
+
+<br>
+
+<div><img src="https://github.com/Icaaan/Solar_Radiation/blob/main/images/1.png" width="1000"/></div>
+
+<br>
+
+Dalam mencapai hal tersebut, maka dilakukan penelitian untuk memprediksi radiasi matahari menggunakan model machine learning. Diharapkan model ini mampu memprediksi radiasi matahari untuk dapat diterapkan diberbagai sektor energi termasuk solar PV yang sangat berpengaruh dengan tingkat radiasi matahari. Prediksi ini nantinya dapat dijadikan acuan bagi perusahaan listrik swasta atau skala nasional dalam menentukan daerah tersebut sudah cocok diobservasi sebagai tempat yang dapat mendapatkan energi radiasi matahari optimum yang dapat dimasa yang akan datang.
+
+Referensi : [Analisis Prediksi Harga Rumah Sesuai Spesifikasi Menggunakan Multiple Linear Regression](https://ejournal.upnvj.ac.id/index.php/informatik/article/download/3635/1498)
 
 ## Business Understanding
 
@@ -44,7 +54,7 @@ Pada bagian ini, kamu perlu menuliskan latar belakang yang relevan dengan proyek
   
   - Terdapat 32686 baris (_records_ atau jumlah pengamatan) yang berisi informasi mengenai data pengkuran.
   - Terdapat 11 kolom yaitu `UNIXTime, Data, Time, Radiation, Temperature, Pressure, Humidity, WindDirection(Degress), Speed, TimeSunRise, TimeSunSet` yang merupakan variabel - variabel pada data
-  - Dari kolom-kolom tersebut terdapat 4 kolom numerik dengan tipe data float64, yaitu `Radiation, Pressure, WindDirection(Degress), Speed` dan terdapat 2 kolom numerik dengan tipe data int64 yaitu `Temperatue, Humidity` yang merupakan fitur numerik. 
+  - Dari kolom-kolom tersebut terdapat 4 kolom numerik dengan tipe data float64, yaitu `Radiation, Pressure, WindDirection(Degress), Speed` dan terdapat 2 kolom numerik dengan tipe data int64 yaitu `Temperature, Humidity` yang merupakan fitur numerik. 
   - Terdapat 2 kolom dengan tipe datetime yaitu `UNIXTime, Data, Time, TimeSunRise, TimeSunSet`
   - Tidak terdapat _missing value_ pada dataset. 
   
@@ -61,8 +71,8 @@ Pada bagian ini, kamu perlu menuliskan latar belakang yang relevan dengan proyek
     * Time SunRise/Sunset = Waktu Matahari terbit dan terbenam [HST(Hawai time)]
 
 - **Sebaran atau Distribusi Data pada Setiap Fitur**
-  <br> sebelum masuk ke tahap distribusi data, persiapan yang dilakukan yaitu perlu membuat dua variabel baru yaitu variabel OHLC_Average untuk menampung rata-rata harga dan Price_After_Month untuk harga setelah sebulan.
-  <br> Berikut merupakan visualisasi data yang menunjukkan sebaran/distribusi data pada setiap fitur-fitur numerik (`High, Low, Open, Close, OHLC_Average, Price_After_Month`) :
+  <br> sebelum masuk ke tahap distribusi data, persiapan yang dilakukan yaitu perlu membuat dua variabel baru yaitu variabel 
+  <br> Berikut merupakan visualisasi data yang menunjukkan sebaran/distribusi data pada setiap fitur-fitur numerik (`Radiaton, Temperature, pressure, Humidity, WindDirection(Degree), Speed`) :
   
   - Mengidentifikasi Missing Value dan Outlier
     <br>
