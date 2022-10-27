@@ -2,7 +2,7 @@
 
 #### Disusun oleh : Ichsan Maulana Putra
 
-Ini adalah proyek pertama _predictive analytics_ untuk memenuhi submission dicoding. Proyek ini membangun _model machine learning_ yang dapat memprediksi pancaran sinar radiasi matahari.
+Ini adalah proyek pertama _predictive analytics_ untuk memenuhi _submission_ dicoding. Proyek ini membangun _model machine learning_ yang dapat memprediksi pancaran sinar radiasi matahari.
 
 ## Domain Proyek
 
@@ -11,9 +11,9 @@ Ini adalah proyek pertama _predictive analytics_ untuk memenuhi submission dicod
 Radiasi matahari merupakan salah satu parameter cuaca yang paling berpengaruh dalam sistem iklim, dimana seluruh fenomena cuaca dan iklim pada mulanya disebabkan oleh variasi distribusi penerimaan radiasi matahari. Fluktuasi intensitas radiasi matahari yang diterima di permukaan bumi membentuk pola iklim dalam berbagai skala waktu. Tidak hanya mempengaruhi sistem cuaca dan iklim, pola radiasi matahari juga memberikan informasi penting dalam berbagai sektor, seperti pertanian, sumber daya air, dan energi. Meskipun demikian, radiasi matahari merupakan salah satu parameter cuaca yang masih belum banyak dikaji datanya untuk dikembangkan [1]. Salah satunya pentingnya radiasi matahari disektor energi terhadap pengembangn lokasi yang nantinya digunakan untuk pembangunan PLTS(Pembangkit Listrik Tenaga Surya).
 
 
-![0](https://user-images.githubusercontent.com/48026319/198274865-07a86e25-c949-44ca-9de2-69ae6f92bd29.jpg)
+ ![0](https://user-images.githubusercontent.com/48026319/198274865-07a86e25-c949-44ca-9de2-69ae6f92bd29.jpg)
 
-Gambar 1. _Solar Photovoltaic Plant_
+ Gambar 1. _Solar Photovoltaic Plant_
 
 
 Dalam mencapai hal tersebut, maka dilakukan penelitian untuk memprediksi radiasi matahari menggunakan model machine learning. Diharapkan model ini mampu memprediksi pancaraan radiasi matahari untuk dapat diterapkan diberbagai sektor energi termasuk PLTS(Pembangkit Listrik Tenaga Surya) yang sangat berpengaruh dengan tingkat radiasi matahari. Prediksi ini nantinya dapat dijadikan acuan bagi perusahaan listrik swasta atau skala nasional dalam menentukan loaksi yang cocok untuk diobservasi sebagai lokasi yang dapat menghasilkan energi radiasi matahari yang optimum dimasa yang akan datang.
@@ -46,10 +46,10 @@ Dalam mencapai hal tersebut, maka dilakukan penelitian untuk memprediksi radiasi
   Tabel 1. Informasi Dataset
   | Jenis                   | Keterangan                                                                                         |
   | ----------------------- | -------------------------------------------------------------------------------------------------- |
-  | Sumber                  | Dataset: [Kaggle](https://www.kaggle.com/datasets/dronio/SolarEnergy?select=SolarPrediction.csv) |
+  | Sumber                  | Dataset: [Kaggle](https://www.kaggle.com/datasets/dronio/SolarEnergy?select=SolarPrediction.csv)   |
   | Dataset Owner           | ANDREY                                                                                             |
   | Lisensi                 | https://opendatacommons.org/licenses/dbcl/1-0/                                                     |
-  | Kategori                | _SolarRadiation, Energy_                                                                             |
+  | Kategori                | _SolarRadiation, Energy_                                                                           |
   | Usability               | 8.24                                                                                               |
   | Jenis dan Ukuran Berkas | CSV (2.9 MB)                                                                                       |
 
@@ -82,36 +82,36 @@ Dalam mencapai hal tersebut, maka dilakukan penelitian untuk memprediksi radiasi
   Sebelum masuk ke tahap distribusi data, persiapan yang dilakukan yaitu perlu membuat dua variabel baru yaitu variabel 
   Berikut merupakan visualisasi data yang menunjukkan sebaran/distribusi data pada setiap fitur-fitur numerik (`Radiaton, Temperature, pressure, _umidity, WindDirection(Degree), Speed, Duration_time, Rltv_time`) :
   
-  - Mengidentifikasi _Missing Value_ dan _Outlier_
-  
-   ![1](https://user-images.githubusercontent.com/48026319/198277559-18690669-13a8-4a24-a6e6-0ff9fa0de540.png)
-   
+    - Mengidentifikasi _Missing Value_ dan _Outlier_
+     
+    ![1](https://user-images.githubusercontent.com/48026319/198277559-18690669-13a8-4a24-a6e6-0ff9fa0de540.png)
+     
     Gambar 2. Data _Outlier_ radiasi matahari
-
+      
     Terlihat jika di atas banyak terdapat outlier pada setiap variabel, lalu untuk mengatasinyadengan menerapkan batas bawah dan batas atas menggunakan metode IQR
     
-  - _Univariate Analysis_
- 
+    - _Univariate Analysis_
+     
     ![2](https://user-images.githubusercontent.com/48026319/198277672-eceafb85-242d-4b81-8c66-43307b20a23e.png)
     
     Gambar 3. Data _Univariate Analysis_ radiasi matahari
     
     Terlihat pada grafik bahwa semua data cenderung distribusi nilainya miring ke kanan (right-skewed). Hal ini akan berimplikasi pada model nantinya.
     
-  - _Multivariate Analysis_
-  
+    - _Multivariate Analysis_
+    
     ![3](https://user-images.githubusercontent.com/48026319/198277736-b7f525cd-0512-4cb1-bacc-5e570747632b.png)
     
     Gambar 4. Data _Multivariate Analysis_ radiasi matahari
-
+    
     Terlihat bahwa pada grafik kebanyakan bernilai positif karena kebanyakan grafik pada sumbu y dan x mengalami peningkatan yang cukup signifikan membentuk sebuah         garis lurus.
     
-  -  _Matrix Correlation_ 
- 
-    ![4](https://user-images.githubusercontent.com/48026319/198278231-5f633912-9a68-412d-83b0-a12a37192897.png)
+    -  _Matrix Correlation_ 
     
+    ![4](https://user-images.githubusercontent.com/48026319/198278231-5f633912-9a68-412d-83b0-a12a37192897.png)
+      
     Gambar 5. Data _Matrix Correlation_ radiasi matahari
-
+    
     _Matrix Correlation_ mengindikasikan adanya _linear_ korelasi diantara _temperature_ dan _solar radiation_. Tidak ada data yang berkorelasi _linear_ lain muncul        dari _feature_ tersebut.
 
 ## Data Preparation
@@ -126,23 +126,23 @@ Dalam mencapai hal tersebut, maka dilakukan penelitian untuk memprediksi radiasi
   
 + _Normalization_
 
-  Algoritma _machine learning_ akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Salah satu teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan _sklearn.preprocessing.StandardScaler._
+  Algoritma _machine learning_ akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Salah satu teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan _sklearn.preprocessing.StandardScaler._[2]
 
 ## Modeling
 + Algoritma
   <br>Penelitian ini melakukan pemodelan dengan 3 algoritma, yaitu _K-Nearest Neighbour, Random Forest_, dan Adaboost
   + _K-Nearest Neighbour_
-    _K-Nearest Neighbour_ bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat. Proyek ini menggunakan [sklearn.neighbors.KNeighborsRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html)[2] dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+    _K-Nearest Neighbour_ bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat. Proyek ini menggunakan _sklearn.neighbors.KNeighborsRegressor_[3] dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
     + `n_neighbors` = Jumlah k tetangga tedekat.
 
   + _Random Forest_
-    <br>Algoritma _random forest_ adalah teknik dalam machine learning dengan metode _ensemble_. Teknik ini beroperasi dengan membangun banyak _decision tree_ pada waktu pelatihan. Proyek ini menggunakan [sklearn.ensemble.RandomForestRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)[3] dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+    <br>Algoritma _random forest_ adalah teknik dalam machine learning dengan metode _ensemble_. Teknik ini beroperasi dengan membangun banyak _decision tree_ pada waktu pelatihan. Proyek ini menggunakan _sklearn.ensemble.RandomForestRegressor_[4] dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
     + `n_estimators` = Jumlah maksimum estimator di mana boosting dihentikan.
     + `max_depth` = Kedalaman maksimum setiap tree.
     + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
 
   + Adaboost
-    <br>AdaBoost juga disebut _Adaptive Boosting_ adalah teknik dalam _machine learning_ dengan metode _ensemble_.  Algoritma yang paling umum digunakan dengan AdaBoost adalah pohon keputusan (_decision trees_) satu tingkat yang berarti memiliki pohon Keputusan dengan hanya 1 _split_. Pohon-pohon ini juga disebut _Decision Stumps_. Algoritma ini bertujuan untuk meningkatkan performa atau akurasi prediksi dengan cara menggabungkan beberapa model sederhana dan dianggap lemah (weak learners) secara berurutan sehingga membentuk suatu model yang kuat (_strong ensemble learner_). Proyek ini menggunakan [sklearn.ensemble.AdaBoostRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html)[4] dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+    <br>AdaBoost juga disebut _Adaptive Boosting_ adalah teknik dalam _machine learning_ dengan metode _ensemble_.  Algoritma yang paling umum digunakan dengan AdaBoost adalah pohon keputusan (_decision trees_) satu tingkat yang berarti memiliki pohon Keputusan dengan hanya 1 _split_. Pohon-pohon ini juga disebut _Decision Stumps_. Algoritma ini bertujuan untuk meningkatkan performa atau akurasi prediksi dengan cara menggabungkan beberapa model sederhana dan dianggap lemah (weak learners) secara berurutan sehingga membentuk suatu model yang kuat (_strong ensemble learner_). Proyek ini menggunakan _sklearn.ensemble.AdaBoostRegressor_[5] dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
     + `n_estimators` = Jumlah maksimum estimator di mana boosting dihentikan.
     + `learning_rate` = Learning rate memperkuat kontribusi setiap regressor.
     + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
@@ -184,4 +184,14 @@ Berikut hasil evaluasi pada proyek ini :
 
 Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini. Model ini masih membutuhkan parameter lain sebagai penunjang data agar bisa menghasilkan akurasi yang lebih optimal.
 
-Referensi : [PREDIKSI RADIASI MATAHARI DENGAN PENERAPAN METODE ELMAN RECURRENT NEURAL NETWORK](https://ejournal.uin-suska.ac.id/index.php/SNTIKI/article/view/7787)
+## Referensi
+
+[1] https://megasains.gawbkt.id/index.php/megasains/article/view/45
+
+[2] https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html
+
+[3] https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html
+
+[4] https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html
+
+[5] https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html
