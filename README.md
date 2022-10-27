@@ -141,7 +141,5 @@ Berikut hasil evaluasi pada proyek ini :
 
 + Mean Squared Error (MSE)
   <div><img src="https://github.com/Icaaan/Solar_Radiation/blob/main/images/6.png" width="300"/></div>
-
-  <div><img src="https://github.com/Icaaan/Solar_Radiation/blob/main/images/7.png" width="500"/></div>
   
-Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini. 
+Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini. Model ini masih membutuhkan parameter lain sebagai penunjang data agar didapat tingkat akurasi yang lebih tinggi.
