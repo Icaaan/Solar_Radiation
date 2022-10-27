@@ -73,7 +73,7 @@ Referensi : [PREDIKSI RADIASI MATAHARI DENGAN PENERAPAN METODE ELMAN RECURRENT N
     * Wind direction = Arah angin yang dilambangkan dengan [degrees]
     * Time SunRise/Sunset = Waktu Matahari terbit dan terbenam [HST(Hawai time)]
     
-- **Pennambahan Fitur**
+- **Penambahan Fitur**
   <br> diperlukan dibuatnya fitur yang spesifik terhadap waktu Sunset dan Sunrise, karena radiasi matahari berubah sesuai dengan        posisi matahari dan juga durasi radiasi matahari yang diterima bumi. Dengan alasan ini perlu dibuat 2 fitur baru di              dalam dataset sebagai penunjang data radiasi matahari, yaitu : `Duration_time` dan`Rltv_time`  
 
 - **Sebaran atau Distribusi Data pada Setiap Fitur**
