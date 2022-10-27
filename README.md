@@ -96,11 +96,19 @@ Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pe
     <br> Terlihat pada matriks korelasi di atas dapat disimpulkan bahwa semua variabel memiliki keterikatan dan korelasi yang kuat antar variabel lainnya, dimana nilai korelasi antar variabel bernilai lebih dari 0.9 atau mendekati 1.
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
++ Melakukan Pengecekan Type data, Missing Value dan Outlier
+
+    Pengecekan type data dilakukan dengan tujuan agar data yang diolah nantinya tidak menemukan kendala, terdapat beberapa data yang tidak sesuai dengan data typenya maka dilakukan adjusting sesuai dengan data tipenya. Pengecekan pada Missing Value yaitu dengan melakukkan checking semua data jika terdapat data yang tidak memiliki nilai, maka dapat dilakukan pembersihan data tersebut, tetapi karena dataset yang digunakan bersih maka missing value tidak ditemukan Dan untuk mengatasi outlier pada proyek, penulis menggunakan penentuan batas atas dan bawah nilai kuartil pada data dengan menggunakan metode IQR. Hasil dari penangan Outlier data berkurang menjadi 27577.
+  
++ Train Test Split
+
+  Train test split aja proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 27577 dibagi menjadi 22061
+ untuk data latih dan 5516 untuk data uji.
+  
++ Normalization
+
+  Algoritma machine learning akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Salah satu teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan sklearn.preprocessing.StandardScaler.
 
 ## Modeling
 + Algoritma
@@ -123,27 +131,27 @@ Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dil
 
 + Hyperparameter Tuning (Grid Search)
   Hyperparameter tuning adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam hyperparameter tuning yang digunakan dalam proyek ini adalah grid search. Berikut adalah hasil dari Grid Search pada proyek ini :
-  | model              | best_params                                                      |
-  |--------------------|------------------------------------------------------------------|
-  | knn                | {'n_neighbors': 13}                                              |
-  | boosting           | {'learning_rate': 0.01, 'n_estimators': 100, 'random_state': 77} |
-  | random_foret       | {'max_depth':16, 'n_estimators': 100, 'random_stste': 11}        |
+  | model               | best_params                                                      |
+  |---------------------|------------------------------------------------------------------|
+  | knn                 | {'n_neighbors': 13}                                              |
+  | boosting            | {'learning_rate': 0.01, 'n_estimators': 100, 'random_state': 77} |
+  | random_forest       | {'max_depth':16, 'n_estimators': 100, 'random_stste': 11}        |
 
 
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
+Metrik evaluasi yang digunakan pada proyek ini adalah akurasi dan mean squared error (MSE). Akurasi menentukan tingkat kemiripan antara hasil prediksi dengan nilai yang sebenarnya (y_test). Mean squared error (MSE) mengukur error dalam model statistik dengan cara menghitung rata-rata error dari kuadrat hasil aktual dikurang hasil prediksi. Berikut formulan MSE :
+<div><img src="https://user-images.githubusercontent.com/107544829/188412654-f5dc0ae1-901b-470e-aae5-1f6b5fb68b4d.png" width="300"/></div>
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
+Berikut hasil evaluasi pada proyek ini :
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
++ Akurasi
+  | model         | accuracy(%)|
+  |---------------|------------|
+  | KNN           | 62.131671  |
+  | RF            | 69.768089  |
+  | Boosting      | 56.726024  |
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
++ Mean Squared Error (MSE)
+  <div><img src="https://user-images.githubusercontent.com/107544829/188413846-7d5454b5-7f83-488e-836f-4f3593eb3d5d.png" width="300"/></div>
 
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini. 
