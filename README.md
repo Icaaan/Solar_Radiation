@@ -45,32 +45,32 @@ Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pe
 
   | Jenis                   | Keterangan                                                                                         |
   | ----------------------- | -------------------------------------------------------------------------------------------------- |
-  | Sumber                  | Dataset: [Kaggle]([https://www.kaggle.com/datasets/dronio/SolarEnergy?select=SolarPrediction.csv]) |
+  | Sumber                  | Dataset: [Kaggle](https://www.kaggle.com/datasets/dronio/SolarEnergy?select=SolarPrediction.csv) |
   | Dataset Owner           | ANDREY                                                                                             |
   | Lisensi                 | https://opendatacommons.org/licenses/dbcl/1-0/                                                     |
   | Kategori                | SolarRadiation, Energy                                                                             |
   | Usability               | 8.24                                                                                               |
-  | Jenis dan Ukuran Berkas | CSV (2.9 MB)                                                                                    |
+  | Jenis dan Ukuran Berkas | CSV (2.9 MB)                                                                                       |
 
   Setelah melakukan observasi pada dataset yang diunduh melalui _link_ Kaggle yaitu `SolarPrediction.csv', didapatkan informasi sebagai berikut :
   
-  - Terdapat  2991 baris (_records_ atau jumlah pengamatan) yang berisi informasi mengenai data riwayat harga **Bitcoin**.
-  - Terdapat 10 kolom yaitu `SNo, Name, Symbol, Date, High, Low, Open, Close, Volume, Marketcap` yang merupakan variabel - variabel pada data
-  - Dari kolom-kolom tersebut terdapat 6 kolom numerik dengan tipe data float64, yaitu `High, Low, Open, Close, Volume, Marketcap` dan terdapat 1 kolom numerik dengan tipe data int64 yaitu `SNo` yang merupakan fitur numerik. 
-  - Terdapat 2 kolom dengan tipe object yaitu `Name, Symbol`
+  - Terdapat 32686 baris (_records_ atau jumlah pengamatan) yang berisi informasi mengenai data pengkuran.
+  - Terdapat 11 kolom yaitu `UNIXTime, Data, Time, Radiation, Temperature, Pressure, Humidity, WindDirection(Degress), Speed, TimeSunRise, TimeSunSet` yang merupakan variabel - variabel pada data
+  - Dari kolom-kolom tersebut terdapat 4 kolom numerik dengan tipe data float64, yaitu `Radiation, Pressure, WindDirection(Degress), Speed` dan terdapat 2 kolom numerik dengan tipe data int64 yaitu `Temperatue, Humidity` yang merupakan fitur numerik. 
+  - Terdapat 2 kolom dengan tipe datetime yaitu `UNIXTime, Data, Time, TimeSunRise, TimeSunSet`
   - Tidak terdapat _missing value_ pada dataset. 
   
   Untuk penjelasan mengenai variabel-variabel pada dataset dapat dilihat pada poin-poin berikut ini:
 
-    * UNIXTime (seconds since Jan 1, 1970)
-    * Date in mm-dd-yyyy format
-    * Radiation: watts per meter 2 
-    * Temperature: degrees Fahrenheit
-    * Humidity: percent
-    * Atmospheric pressure: Hg
-    * Wind direction: degrees
-    * Wind speed: miles per hour
-    * Sunrise/Sunset: Hawaii time
+    * UNIXTime = adalah jumlah detik yang telah berlalu sejak 00:00:00 UTC pada 1 Januari 1970 [s]
+    * data,Time = Tanggal/waktu saat pengambilan data [%Y-%m-%d %H:%M:%S]
+    * Radiation = radiasi yang dipancarkan oleh matahari [W/m^2]
+    * Temperatue = Temperature saat pengukuran terjadi [F]
+    * Atmospheric pressure = Tekanan atmosfer bumi [Hg]
+    * Humidity = Kelembapan saat pengukuran terjadi [%]
+    * Wind speed = Kecepatan Angin Pada Saat Pengukuran Terjadi[miles/h]
+    * Wind direction = Arah angin yang dilambangkan dengan [degrees]
+    * Time SunRise/Sunset = Waktu Matahari terbit dan terbenam [HST(Hawai time)]
 
 - **Sebaran atau Distribusi Data pada Setiap Fitur**
   <br> sebelum masuk ke tahap distribusi data, persiapan yang dilakukan yaitu perlu membuat dua variabel baru yaitu variabel OHLC_Average untuk menampung rata-rata harga dan Price_After_Month untuk harga setelah sebulan.
@@ -103,12 +103,32 @@ Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dil
 - Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
++ Algoritma
+  Penelitian ini melakukan pemodelan dengan 3 algoritma, yaitu K-Nearest Neighbour, Random Forest, dan
+  + K-Nearest Neighbour
+    K-Nearest Neighbour bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat. Proyek ini menggunakan [sklearn.neighbors.KNeighborsRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html) dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+    + `n_neighbors` = Jumlah k tetangga tedekat.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+  + Random Forest
+    Algoritma random forest adalah teknik dalam machine learning dengan metode ensemble. Teknik ini beroperasi dengan membangun banyak decision tree pada waktu pelatihan. Proyek ini menggunakan [sklearn.ensemble.RandomForestRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html) dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+    + `n_estimators` = Jumlah maksimum estimator di mana boosting dihentikan.
+    + `max_depth` = Kedalaman maksimum setiap tree.
+    + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
+
+  + Adaboost
+    AdaBoost juga disebut Adaptive Boosting adalah teknik dalam machine learning dengan metode ensemble.  Algoritma yang paling umum digunakan dengan AdaBoost adalah pohon keputusan (decision trees) satu tingkat yang berarti memiliki pohon Keputusan dengan hanya 1 split. Pohon-pohon ini juga disebut Decision Stumps. Algoritma ini bertujuan untuk meningkatkan performa atau akurasi prediksi dengan cara menggabungkan beberapa model sederhana dan dianggap lemah (weak learners) secara berurutan sehingga membentuk suatu model yang kuat (strong ensemble learner). Proyek ini menggunakan [sklearn.ensemble.AdaBoostRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html) dengan memasukkan X_train dan y_train dalam membangun model. Parameter yang digunakan pada proyek ini adalah :
+    + `n_estimators` = Jumlah maksimum estimator di mana boosting dihentikan.
+    + `learning_rate` = Learning rate memperkuat kontribusi setiap regressor.
+    + `random_state` = Mengontrol seed acak yang diberikan pada setiap base_estimator pada setiap iterasi boosting.
+
++ Hyperparameter Tuning (Grid Search)
+  Hyperparameter tuning adalah cara untuk mendapatkan parameter terbaik dari algoritma dalam membangun model. Salah satu teknik dalam hyperparameter tuning yang digunakan dalam proyek ini adalah grid search. Berikut adalah hasil dari Grid Search pada proyek ini :
+  | model              | best_params                                                      |
+  |--------------------|------------------------------------------------------------------|
+  | knn                | {'n_neighbors': 13}                                              |
+  | boosting           | {'learning_rate': 0.01, 'n_estimators': 100, 'random_state': 77} |
+  | random_foret       | {'max_depth':16, 'n_estimators': 100, 'random_stste': 11}        |
+
 
 ## Evaluation
 Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
