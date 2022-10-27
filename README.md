@@ -1,8 +1,8 @@
-# Proyek Pertama Solar Radiation Prediction
+# Proyek Pertama _Solar Radiation Prediction_
 
 #### Disusun oleh : Ichsan Maulana Putra
 
-Ini adalah proyek pertama predictive analytics untuk memenuhi submission dicoding. Proyek ini membangun model machine learning yang dapat memprediksi pancaran sinar radiasi matahari.
+Ini adalah proyek pertama _predictive analytics_ untuk memenuhi submission dicoding. Proyek ini membangun _model machine learning_ yang dapat memprediksi pancaran sinar radiasi matahari.
 
 ## Domain Proyek
 
@@ -10,11 +10,11 @@ Ini adalah proyek pertama predictive analytics untuk memenuhi submission dicodin
 
 Radiasi matahari merupakan salah satu parameter cuaca yang paling berpengaruh dalam sistem iklim, dimana seluruh fenomena cuaca dan iklim pada mulanya disebabkan oleh variasi distribusi penerimaan radiasi matahari. Fluktuasi intensitas radiasi matahari yang diterima di permukaan bumi membentuk pola iklim dalam berbagai skala waktu. Tidak hanya mempengaruhi sistem cuaca dan iklim, pola radiasi matahari juga memberikan informasi penting dalam berbagai sektor, seperti pertanian, sumber daya air, dan energi. Meskipun demikian, radiasi matahari merupakan salah satu parameter cuaca yang masih belum banyak dikaji datanya untuk dikembangkan. Salah satunya pentingnya radiasi matahari disektor energi terhadap pengembangn lokasi yang nantinya digunakan untuk pembangunan PLTS(Pembangkit Listrik Tenaga Surya).
 
-<br>
 
-<div><img src="https://github.com/Icaaan/Solar_Radiation/blob/main/images/0.jpg" width="800"/></div>
+![0](https://user-images.githubusercontent.com/48026319/198274865-07a86e25-c949-44ca-9de2-69ae6f92bd29.jpg)
 
-<br>
+Gambar 1. _Solar Photovoltaic Plant_
+
 
 Dalam mencapai hal tersebut, maka dilakukan penelitian untuk memprediksi radiasi matahari menggunakan model machine learning. Diharapkan model ini mampu memprediksi pancaraan radiasi matahari untuk dapat diterapkan diberbagai sektor energi termasuk PLTS(Pembangkit Listrik Tenaga Surya) yang sangat berpengaruh dengan tingkat radiasi matahari. Prediksi ini nantinya dapat dijadikan acuan bagi perusahaan listrik swasta atau skala nasional dalam menentukan loaksi yang cocok untuk diobservasi sebagai lokasi yang dapat menghasilkan energi radiasi matahari yang optimum dimasa yang akan datang.
 
@@ -42,77 +42,91 @@ Referensi : [PREDIKSI RADIASI MATAHARI DENGAN PENERAPAN METODE ELMAN RECURRENT N
 
 ## Data Understanding
 - **Informasi Dataset**
-  <br> Dataset yang digunakan pada proyek ini yaitu dataset lengkap dengan prngukuran radiasi matahari selama 4 bulan, informasi lebih lanjut mengenai dataset tersebut dapat lihat pada tabel berikut:
-
+  <br> Dataset yang digunakan pada proyek ini yaitu dataset lengkap dengan perngukuran radiasi matahari selama 4 bulan, informasi lebih lanjut mengenai _dataset_ tersebut dapat lihat pada tabel berikut:
+  
+  Tabel 1. Informasi Dataset
   | Jenis                   | Keterangan                                                                                         |
   | ----------------------- | -------------------------------------------------------------------------------------------------- |
   | Sumber                  | Dataset: [Kaggle](https://www.kaggle.com/datasets/dronio/SolarEnergy?select=SolarPrediction.csv) |
   | Dataset Owner           | ANDREY                                                                                             |
   | Lisensi                 | https://opendatacommons.org/licenses/dbcl/1-0/                                                     |
-  | Kategori                | SolarRadiation, Energy                                                                             |
+  | Kategori                | _SolarRadiation, Energy_                                                                             |
   | Usability               | 8.24                                                                                               |
   | Jenis dan Ukuran Berkas | CSV (2.9 MB)                                                                                       |
 
   Setelah melakukan observasi pada dataset yang diunduh melalui _link_ Kaggle yaitu `SolarPrediction.csv', didapatkan informasi sebagai berikut :
   
   - Terdapat 32686 baris (_records_ atau jumlah pengamatan) yang berisi informasi mengenai data pengkuran.
-  - Terdapat 11 kolom yaitu `UNIXTime, Data, Time, Radiation, Temperature, Pressure, Humidity, WindDirection(Degress), Speed, TimeSunRise, TimeSunSet` yang merupakan variabel - variabel pada data
-  - Dari kolom-kolom tersebut terdapat 4 kolom numerik dengan tipe data float64, yaitu `Radiation, Pressure, WindDirection(Degress), Speed` dan terdapat 2 kolom numerik dengan tipe data int64 yaitu `Temperature, Humidity` yang merupakan fitur numerik. 
+  - Terdapat 11 kolom yaitu `UNIXTime, Data, Time, Radiation, Temperature, _Pressure, Humidity, WindDirection(Degress), Speed, TimeSunRise, TimeSunSet` yang merupakan variabel - variabel pada data
+  - Dari kolom-kolom tersebut terdapat 4 kolom numerik dengan tipe data float64, yaitu `Radiation, Pressure, WindDirection(Degress), Speed` dan terdapat 2 kolom numerik dengan tipe data int64 yaitu `Temperature, Humidit_` yang merupakan fitur numerik. 
   - Terdapat 2 kolom dengan tipe datetime yaitu `UNIXTime, Data, Time, TimeSunRise, TimeSunSet`
   - Tidak terdapat _missing value_ pada dataset. 
   
   Untuk penjelasan mengenai variabel-variabel pada dataset dapat dilihat pada poin-poin berikut ini:
 
-    * UNIXTime = adalah jumlah detik yang telah berlalu sejak 00:00:00 UTC pada 1 Januari 1970 [s]
-    * data,Time = Tanggal/waktu saat pengambilan data [%Y-%m-%d %H:%M:%S]
-    * Radiation = radiasi yang dipancarkan oleh matahari [W/m^2]
-    * Temperatue = Temperature saat pengukuran terjadi [F]
-    * Atmospheric pressure = Tekanan atmosfer bumi [Hg]
-    * Humidity = Kelembapan saat pengukuran terjadi [%]
-    * Wind speed = Kecepatan Angin Pada Saat Pengukuran Terjadi[miles/h]
-    * Wind direction = Arah angin yang dilambangkan dengan [degrees]
-    * Time SunRise/Sunset = Waktu Matahari terbit dan terbenam [HST(Hawai time)]
+    * _UNIXTime_ = adalah jumlah detik yang telah berlalu sejak 00:00:00 UTC pada 1 Januari 1970 [s]
+    * _data,Time_ = Tanggal/waktu saat pengambilan data [%Y-%m-%d %H:%M:%S]
+    * _Radiation_ = radiasi yang dipancarkan oleh matahari [W/m^2]
+    * _Temperatue_ = Temperature saat pengukuran terjadi [F]
+    * _Atmospheric pressure_ = Tekanan atmosfer bumi [Hg]
+    * _Humidity_ = Kelembapan saat pengukuran terjadi [%]
+    * _Wind speed_ = Kecepatan Angin Pada Saat Pengukuran Terjadi[miles/h]
+    * _Wind direction_ = Arah angin yang dilambangkan dengan [degrees]
+    * _Time SunRise/Sunset_ = Waktu Matahari terbit dan terbenam [HST(Hawai time)]
     
 - **Penambahan Fitur**
-  <br> diperlukan dibuatnya fitur yang spesifik terhadap waktu Sunset dan Sunrise, karena radiasi matahari berubah sesuai dengan        posisi matahari dan juga durasi radiasi matahari yang diterima bumi. Dengan alasan ini perlu dibuat 2 fitur baru di              dalam dataset sebagai penunjang data radiasi matahari, yaitu : `Duration_time` dan`Rltv_time`  
+   <br>Diperlukan dibuatnya fitur yang spesifik terhadap waktu Sunset dan Sunrise, karena radiasi matahari berubah sesuai dengan posisi matahari dan juga durasi          radiasi matahari yang diterima bumi. Dengan alasan ini perlu dibuat 2 fitur baru di dalam dataset sebagai penunjang data radiasi matahari, yaitu : `Duration_time`      dan `Rltv_time`  
 
 - **Sebaran atau Distribusi Data pada Setiap Fitur**
-  <br> sebelum masuk ke tahap distribusi data, persiapan yang dilakukan yaitu perlu membuat dua variabel baru yaitu variabel 
-  <br> Berikut merupakan visualisasi data yang menunjukkan sebaran/distribusi data pada setiap fitur-fitur numerik (`Radiaton, Temperature, pressure, Humidity, WindDirection(Degree), Speed, Duration_time, Rltv_time`) :
+  <br> Sebelum masuk ke tahap distribusi data, persiapan yang dilakukan yaitu perlu membuat dua variabel baru yaitu variabel 
+  <br> Berikut merupakan visualisasi data yang menunjukkan sebaran/distribusi data pada setiap fitur-fitur numerik (`Radiaton, Temperature, pressure, _umidity, WindDirection(Degree), Speed, Duration_time, Rltv_time`) :
   
-  - Mengidentifikasi Missing Value dan Outlier
-    <br>
-    <image src='https://github.com/Icaaan/Solar_Radiation/blob/main/images/1.png' width= 500/>
-    <br> Terlihat jika di atas banyak terdapat outlier pada setiap variabel, lalu untuk mengatasinyadengan menerapkan batas bawah dan batas atas menggunakan metode IQR
+  - Mengidentifikasi _Missing Value_ dan _Outlier_
+  
+   ![1](https://user-images.githubusercontent.com/48026319/198277559-18690669-13a8-4a24-a6e6-0ff9fa0de540.png)
+   
+   Gambar 2. Data _Outlier_ radiasi matahari
+
+    Terlihat jika di atas banyak terdapat outlier pada setiap variabel, lalu untuk mengatasinyadengan menerapkan batas bawah dan batas atas menggunakan metode IQR
     
-  - Univariate Analysis
-    <br>
-    <image src='https://github.com/Icaaan/Solar_Radiation/blob/main/images/2.png' width= 500/>
-    <br> Terlihat pada grafik bahwa semua data cenderung distribusi nilainya miring ke kanan (right-skewed). Hal ini akan berimplikasi pada model nantinya.
+  - _Univariate Analysis_
+ 
+    ![2](https://user-images.githubusercontent.com/48026319/198277672-eceafb85-242d-4b81-8c66-43307b20a23e.png)
     
-  - Multivariate Analysis
-    <br>
-    <image src='https://github.com/Icaaan/Solar_Radiation/blob/main/images/3.png' width= 500/>
-    <br> Terlihat bahwa pada grafik kebanyakan bernilai positif karena kebanyakan grafik pada sumbu y dan x mengalami peningkatan yang cukup signifikan membentuk sebuah garis lurus.
+    Gambar 3. Data _Univariate Analysis_ radiasi matahari
     
-    <br>
-    <image src='https://github.com/Icaaan/Solar_Radiation/blob/main/images/4.png' width= 500/>
-    <br> Matrix korelasi mengindikasikan adanya linear korelasi diantara temperature dan solar radiation. Tidak ada data yang berkorelasi linear lain muncul dari feature tersebut.
+    Terlihat pada grafik bahwa semua data cenderung distribusi nilainya miring ke kanan (right-skewed). Hal ini akan berimplikasi pada model nantinya.
+    
+  - _Multivariate Analysis_
+  
+    ![3](https://user-images.githubusercontent.com/48026319/198277736-b7f525cd-0512-4cb1-bacc-5e570747632b.png)
+    
+    Gambar 4. Data _Multivariate Analysis_ radiasi matahari
+
+    Terlihat bahwa pada grafik kebanyakan bernilai positif karena kebanyakan grafik pada sumbu y dan x mengalami peningkatan yang cukup signifikan membentuk sebuah         garis lurus.
+    
+ -  _Matrix Correlation_ 
+ 
+    ![4](https://user-images.githubusercontent.com/48026319/198278231-5f633912-9a68-412d-83b0-a12a37192897.png)
+    
+    Gambar 5. Data _Matrix Correlation_ radiasi matahari
+
+    _Matrix Correlation_ mengindikasikan adanya linear korelasi diantara temperature dan solar radiation. Tidak ada data yang berkorelasi linear lain muncul dari           feature tersebut.
 
 ## Data Preparation
 
-+ Melakukan Pengecekan Type data, Missing Value dan Outlier
++ Melakukan Pengecekan _Data Type, Missing Value_ dan _Outlier_
 
-    Pengecekan type data dilakukan dengan tujuan agar data yang diolah nantinya tidak menemukan kendala, terdapat beberapa data yang tidak sesuai dengan data typenya maka dilakukan adjusting sesuai dengan data tipenya. Pengecekan pada Missing Value yaitu dengan melakukkan checking semua data jika terdapat data yang tidak memiliki nilai, maka dapat dilakukan pembersihan data tersebut, tetapi karena dataset yang digunakan bersih maka missing value tidak ditemukan Dan untuk mengatasi outlier pada proyek, penulis menggunakan penentuan batas atas dan bawah nilai kuartil pada data dengan menggunakan metode IQR. Hasil dari penangan Outlier data berkurang menjadi 27577.
+    Pengecekan tipe data dilakukan dengan tujuan agar data yang diolah nantinya tidak menemukan kendala, terdapat beberapa data yang tidak sesuai dengan data tipenya maka dilakukan _adjusting_ sesuai dengan data tipenya. Pengecekan pada _Missing Value_ yaitu dengan melakukkan _checking_ semua data, jika terdapat data yang tidak memiliki nilai, maka dapat dilakukan pembersihan data tersebut. Tetapi karena dataset yang digunakan bersih maka _missing value_ tidak ditemukan Dan untuk mengatasi _outlier_ pada proyek, penulis menggunakan penentuan batas atas dan bawah nilai kuartil pada data dengan menggunakan metode IQR. Hasil dari penangan _Outlier_ data berkurang menjadi 27577.
   
-+ Train Test Split
++ _Train Test Split_
 
-  Train test split aja proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 27577 dibagi menjadi 22061
+  _Train test split_ aja proses membagi data menjadi data latih dan data uji. Data latih akan digunakan untuk membangun model, sedangkan data uji akan digunakan untuk menguji performa model. Pada proyek ini dataset sebesar 27577 dibagi menjadi 22061
  untuk data latih dan 5516 untuk data uji.
   
-+ Normalization
++ _Normalization_
 
-  Algoritma machine learning akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Salah satu teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan sklearn.preprocessing.StandardScaler.
+  Algoritma _machine learning_ akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Salah satu teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan _sklearn.preprocessing.StandardScaler._
 
 ## Modeling
 + Algoritma
@@ -144,7 +158,9 @@ Referensi : [PREDIKSI RADIASI MATAHARI DENGAN PENERAPAN METODE ELMAN RECURRENT N
 
 ## Evaluation
 Metrik evaluasi yang digunakan pada proyek ini adalah akurasi dan mean squared error (MSE). Akurasi menentukan tingkat kemiripan antara hasil prediksi dengan nilai yang sebenarnya (y_test). Mean squared error (MSE) mengukur error dalam model statistik dengan cara menghitung rata-rata error dari kuadrat hasil aktual dikurang hasil prediksi. Berikut formulan MSE :
-<div><img src="https://github.com/Icaaan/Solar_Radiation/blob/main/images/8.png" width="300"/></div>
+
+When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are 
+$$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 
 Berikut hasil evaluasi pada proyek ini :
 
@@ -156,6 +172,7 @@ Berikut hasil evaluasi pada proyek ini :
   | Boosting      | 80.889664  |
 
 + Mean Squared Error (MSE)
-  <div><img src="https://github.com/Icaaan/Solar_Radiation/blob/main/images/5.png" width="300"/></div>
-  
+
+  ![5](https://user-images.githubusercontent.com/48026319/198277076-51c88739-2285-4d09-ace4-b3c677d15b4f.png)
+
 Dari hasil evaluasi dapat dilihat bahwa model dengan algoritma Random Forest memiliki akurasi lebih tinggi tinggi dan tingkat error lebih kecil dibandingkan algoritma lainnya dalam proyek ini. Model ini masih membutuhkan parameter lain sebagai penunjang data agar bisa menghasilkan akurasi yang lebih optimal.
