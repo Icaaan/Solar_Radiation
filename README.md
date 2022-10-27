@@ -72,10 +72,13 @@ Referensi : [PREDIKSI RADIASI MATAHARI DENGAN PENERAPAN METODE ELMAN RECURRENT N
     * Wind speed = Kecepatan Angin Pada Saat Pengukuran Terjadi[miles/h]
     * Wind direction = Arah angin yang dilambangkan dengan [degrees]
     * Time SunRise/Sunset = Waktu Matahari terbit dan terbenam [HST(Hawai time)]
+    *
+- **Pennambahan Fitur**
+  <br> diperlukan dibuatnya fitur yang spesifik terhadap waktu Sunset dan Sunrise, karena radiasi matahari berubah sesuai dengan        posisi matahari dan durasi radiasi matahari yang diterima bumi. Dengan alasan ini perlu dibuat 2 fitur baru di                  dalam dataset sebagai penunjang data radiasi matahari, yaitu : `Rltv_time` dan `Duration_time`
 
 - **Sebaran atau Distribusi Data pada Setiap Fitur**
   <br> sebelum masuk ke tahap distribusi data, persiapan yang dilakukan yaitu perlu membuat dua variabel baru yaitu variabel 
-  <br> Berikut merupakan visualisasi data yang menunjukkan sebaran/distribusi data pada setiap fitur-fitur numerik (`Radiaton, Temperature, pressure, Humidity, WindDirection(Degree), Speed`) :
+  <br> Berikut merupakan visualisasi data yang menunjukkan sebaran/distribusi data pada setiap fitur-fitur numerik (`Radiaton, Temperature, pressure, Humidity, WindDirection(Degree), Speed, Duration_time, Rltv_time`) :
   
   - Mengidentifikasi Missing Value dan Outlier
     <br>
