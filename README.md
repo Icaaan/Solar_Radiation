@@ -126,7 +126,7 @@ Dalam mencapai hal tersebut, maka dilakukan penelitian untuk memprediksi radiasi
   
 + _Normalization_
 
-  Algoritma _machine learning_ akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Salah satu teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan _sklearn.preprocessing.StandardScaler._[2]
+  Algoritma _machine learning_ akan memiliki performa lebih baik dan bekerja lebih cepat jika dimodelkan dengan data seragam yang memiliki skala relatif sama. Salah satu teknik normalisasi yang digunakan pada proyek ini adalah Standarisasi dengan _sklearn.preprocessing.StandardScaler_[2].
 
 ## Modeling
 + Algoritma
